@@ -94,12 +94,14 @@ class TagsToFolders extends WireData implements Module, ConfigurableModule {
 	}
 
 	public function getModuleConfigInputfields(InputfieldWrapper $inputfields) {
-		$f = $inputfields->InputfieldToggle;
-		$f->label = $this->_("Hide “system” tag?");
-		$f->description = $this->_("When enabled the folder “system” will be hidden. Note fields/templates tagged with “system” and any other tag will still appear in the other tag’s folder"); 
-		$f->icon = "gear";
-		$f->name = "hideSystem";
-		$f->value = (bool) $this->hideSystem;
-		$inputfields->add($f);
+		if($this->config->advanced) {
+			$f = $inputfields->InputfieldToggle;
+			$f->label = $this->_("Hide “system” tag?");
+			$f->description = $this->_("When enabled the folder “system” will be hidden. Note fields/templates tagged with “system” and any other tag will still appear in the other tag’s folder");
+			$f->icon = "gear";
+			$f->name = "hideSystem";
+			$f->value = (bool) $this->hideSystem;
+			$inputfields->add($f);
+		}
 	}
 }
