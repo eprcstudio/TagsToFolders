@@ -17,7 +17,7 @@
 }
 
 /* Konkat Theme */
-.AdminThemeUikitDefault .ui-menu > .ui-menu-item.add:first-child {
+.AdminThemeUikitDefault .ui-menu > .ui-menu-item.add:first-child:has(+ .tag) {
 	margin-bottom: 0 !important;
 }
 
